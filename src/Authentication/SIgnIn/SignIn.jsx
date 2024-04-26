@@ -4,7 +4,6 @@ import { FaEyeSlash } from "react-icons/fa6";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { updateProfile } from "firebase/auth";
 import { AuthFirebase } from "../../Firebase/FIrebase";
 
 

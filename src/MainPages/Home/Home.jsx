@@ -12,7 +12,7 @@ const Home = () => {
     return (
         <div>
             {/* banner section */}
-            <div className="bg-gradient-to-tl from-black to-orange-300 h-96 w-full relative">
+            <div className="mt-20 bg-gradient-to-tl from-black to-orange-300 h-96 w-full relative">
                 <img src="/public/banner-tourist-spot.jpg" alt="" className="w-full h-full object-cover absolute mix-blend-overlay" />
                 <h1 style={{ paddingTop: '5rem', margin: 'auto', fontStyle: "italic", fontWeight: 'bold', fontSize: '70px', color: 'black', textAlign: 'center' }}>
                     LIFE IS ABOUT <br />{' '}
@@ -30,9 +30,11 @@ const Home = () => {
                     </span>
                 </h1>
             </div>
-            {/* react banner slider */}
-            <div className="my-14 w-full">
-                <div className="mb-5">
+
+            {/* banner slider */}
+
+            <div className="my-10 w-full">
+                <div className="mb-7">
                 <h1 style={{ paddingTop: '5rem', margin: 'auto', fontStyle: "italic", fontWeight: 'bold', fontSize: '50px', color: 'black', textAlign: 'center' }}>
                     YOUR VACATION {' '}
                     <span style={{ color: 'orange', fontWeight: 'bold' }}>
@@ -49,6 +51,7 @@ const Home = () => {
                     </span>
                 </h1>
                 </div>
+                <div>
                 <Swiper
                     modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
                     spaceBetween={50}
@@ -61,20 +64,30 @@ const Home = () => {
                     onSlideChange={() => console.log('slide change')}
                 >
                     <SwiperSlide className="mx-auto">
-                        <div>
-                            <img src="/public/Malaysia-Sets-Out-Tourism-Recovery-Plan-2-1024x668.jpg" className="w-full h-[500px]" alt="" />
+                        <div className="bg-gradient-to-tl from-cyan-200 to-black h-96 w-full relative">
+                            <h2 className="absolute text-6xl text-white mx-auto font-bold">CHOOSE</h2>
+                            <img src="/public/Malaysia-Sets-Out-Tourism-Recovery-Plan-2-1024x668.jpg" className="w-full h-96 object-cover absolute mix-blend-overlay" alt="" />
                         </div>
                     </SwiperSlide>
-                    <SwiperSlide><div>
-                        <img src="/public/thailand-home.webp" className="w-full h-[500px]" alt="" />
+                    <SwiperSlide><div className="bg-gradient-to-tl from-black to-cyan-200 h-96 w-full relative">
+                        <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl text-white mx-auto font-bold">YOUR</h2>
+                        <img src="/public/thailand-home.webp" className="w-full h-96 object-cover absolute mix-blend-overlay" alt="" />
                     </div></SwiperSlide>
                     <SwiperSlide>
-                        <div>
-                            <img src="/public/1 JD7lUyrUdRGhjppG7j0dcQ.jpg" className="w-full h-[500px]" alt="" />
+                        <div className="bg-gradient-to-tl from-black to-orange-300 h-96 w-full relative">
+                        <h2 className="absolute top-2/3 left-2/3 text-6xl text-white mx-auto font-bold">DESTINATION</h2>
+                            <img src="/public/1 JD7lUyrUdRGhjppG7j0dcQ.jpg" className="w-full h-96 object-cover absolute mix-blend-overlay" alt="" />
                         </div>
                     </SwiperSlide>
                     ...
                 </Swiper>
+            </div>
+            </div>
+
+            {/* Tourist Spot Section */}
+
+            <div className="my-10">
+                <h2 className="text-center text-5xl font-bold italic">TOURISTS <span className="text-orange-400">SPOT</span></h2>
             </div>
 
         </div>
