@@ -39,15 +39,11 @@ const SignIn = () => {
 
     const handleGoogleLogin = () => {
         googleUser()
-            .then(result => {
+            .then(() => {
                 toast.success('You are logged in successfully');
                 setTimeout(() => {
                     navigate('/')
                  }, 1000);
-                updateProfile(result.user, {
-                    displayName: displayName,
-                    photoURL: photoURL
-                })
                 setTimeout(() => {
                     window.location.reload();
                  }, 2000);
@@ -58,15 +54,11 @@ const SignIn = () => {
 
     const handleGithubLogin = () => {
         githubUser()
-            .then(result => {
+            .then(() => {
                 toast.success('You are logged in successfully');
                 setTimeout(() => {
                    navigate('/')
                 }, 1000);
-                updateProfile(result.user, {
-                    displayName: displayName,
-                    photoURL: photoURL
-                })
                 setTimeout(() => {
                     window.location.reload();
                  }, 2000);
