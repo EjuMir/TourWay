@@ -8,6 +8,7 @@ import AllTouristSpot from "../MainPages/AllTouristSpot/AllTouristSpot";
 import AddTouristSpot from "../MainPages/AddTouristSpot/AddTouristSpot";
 import MyList from "../MainPages/MyList/MyList";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Home from "../MainPages/Home/Home";
 
   
   const router = createBrowserRouter([
@@ -15,6 +16,10 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
       path: "/",
       element: <Root></Root>,
       children: [
+        {
+           path:'/',
+           element: <Home></Home>
+        },
         {
             path:'/signIn',
             element:<SignIn></SignIn>

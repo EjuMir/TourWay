@@ -10,15 +10,15 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthFirebase);
 
     const navLink = <>
-        <NavLink to='/' className={({ isActive }) => isActive ? 'bg-cyan-700 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Home</NavLink>
-        <NavLink to='/allTouristSpot' className={({ isActive }) => isActive ? 'bg-cyan-700 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >All Tourist Spot</NavLink>
-        <NavLink to='/addTouristSpot' className={({ isActive }) => isActive ? 'bg-cyan-700 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Add Tourist Spot</NavLink>
-        <NavLink to='/MyList' className={({ isActive }) => isActive ? 'bg-cyan-700 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >My List</NavLink>
+        <NavLink to='/' className={({ isActive }) => isActive ? 'bg-orange-400 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Home</NavLink>
+        <NavLink to='/allTouristSpot' className={({ isActive }) => isActive ? 'bg-orange-400 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >All Tourist Spot</NavLink>
+        <NavLink to='/addTouristSpot' className={({ isActive }) => isActive ? 'bg-orange-400 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Add Tourist Spot</NavLink>
+        <NavLink to='/MyList' className={({ isActive }) => isActive ? 'bg-orange-400 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >My List</NavLink>
 
     </>
     return (
        
-        <div className="navbar bg-violet-400 bg-opacity-20 mb-10">
+        <div className="navbar bg-gradient-to-tl from-white to-orange-400 mb-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
