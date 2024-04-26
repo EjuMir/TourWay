@@ -30,7 +30,8 @@ import Home from "../MainPages/Home/Home";
         },
         {
             path:'/allTouristSpot',
-            element:<AllTouristSpot></AllTouristSpot>
+            element:<AllTouristSpot></AllTouristSpot>,
+            loader : () => fetch('http://localhost:5000/allTouristSpot')
         },
         {
             path:'/addTouristSpot',

@@ -1,9 +1,47 @@
+import Swal from 'sweetalert2'
+
 const AddTouristSpot = () => {
+
+    const handleSubmit = e =>{
+         e.preventDefault();
+         const form = e.target;
+         const image = form.image.value;
+         const tourSpot = form.spotName.value;
+         const country = form.countryName.value;
+         const location = form.location.value;
+         const description = form.shortDes.value;
+         const cost = form.avgCost.value;
+         const seasonality = form.season.value;
+         const travelTime = form.time.value;
+         const visitor = form.visitor.value;
+         const userName = form.userName.value;
+         const userEmail = form.email.value
+
+         const tourCard = {image, tourSpot, country, location, description, cost, seasonality, travelTime, visitor, userName, userEmail};
+         
+         fetch('http://localhost:5000/allTouristSpot', {
+            method : 'POST',
+            headers : {'content-type':'application/json'},
+            body : JSON.stringify(tourCard)
+         })
+         .then(res=>res.json())
+         .then(data=>{
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Your Tour Spot has been added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                  })
+            }
+         })
+    }
+
     return (
         <div>
             <h1 className='my-10 text-center text-2xl font-bold'>ADD TOURIST SPOT</h1>
             <div className="mb-10">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-2 gap-5 justify-center">
                         <div className="flex flex-col gap-2">
                             <h4>Tourist Spot Name :</h4>
@@ -17,7 +55,7 @@ const AddTouristSpot = () => {
                             <h4>Short Description :</h4>
                             <input type="text" name="shortDes" placeholder="Type here" className="input input-bordered input-primary w-full" />
                             <h4>Average Cost :</h4>
-                            <input type="text" name="avgCost" placeholder="Type here" className="input input-bordered input-primary w-full" />
+                            <input type="number" name="avgCost" placeholder="Type here" className="input input-bordered input-primary w-full" />
                         </div>
                         <div className="flex flex-col gap-2">
                             <h4>Seasonality :</h4>

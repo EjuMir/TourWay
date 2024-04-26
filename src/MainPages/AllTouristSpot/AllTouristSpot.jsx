@@ -1,9 +1,15 @@
-import React from 'react';
+import { useLoaderData } from "react-router-dom";
+import SingleTourSpot from "./SingleTourSpot";
 
 const AllTouristSpot = () => {
+
+    const loadData = useLoaderData();
+
     return (
-        <div>
-            <h1>all tourist spots</h1>
+        <div className="grid grid-cols-3 place-items-center">
+            {
+                loadData.map(data => <SingleTourSpot key={data._id} data={data}></SingleTourSpot>)
+            }
         </div>
     );
 };
