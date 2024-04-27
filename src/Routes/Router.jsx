@@ -9,6 +9,7 @@ import AddTouristSpot from "../MainPages/AddTouristSpot/AddTouristSpot";
 import MyList from "../MainPages/MyList/MyList";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Home from "../MainPages/Home/Home";
+import ViewDetails from "../MainPages/ViewDetails/ViewDetails";
 
   
   const router = createBrowserRouter([
@@ -39,8 +40,14 @@ import Home from "../MainPages/Home/Home";
         },
         {
             path:'/MyList',
-            element:<PrivateRoute><MyList></MyList></PrivateRoute>
+            element:<PrivateRoute><MyList></MyList></PrivateRoute>,
+            loader : () => fetch('http://localhost:5000/allTouristSpot')
         },
+        {
+          path:'/viewDetails/:id',
+          element:<ViewDetails></ViewDetails>,
+          loader : ({params}) => fetch(`http://localhost:5000/viewDetails/${params.id}`)
+        }
         
       ]
     },
