@@ -12,6 +12,11 @@ const SignUp = () => {
     const [pass, showPass] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const { loading } = useContext(AuthFirebase)
+
+    if (loading) {
+        return <div className="mx-auto text-center mt-10"><p className="loading loading-bars loading-lg"></p></div>
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -21,10 +26,10 @@ const SignUp = () => {
         const email = form.get('email');
         const password = form.get('password');
         console.log(name, photoUrl, email, password);
-        
+
         setError('');
 
-        if(name == '' || photoUrl == '' || email == '' || password == ''){
+        if (name == '' || photoUrl == '' || email == '' || password == '') {
             toast.error('Please fulfill all the requirements');
             return
         }
@@ -33,17 +38,17 @@ const SignUp = () => {
             setError('Password must be at least 6 characters');
             return;
         }
-    
-        
+
+
         else if (!/[A-Z]/.test(password)) {
             setError('Must have an UpperCase character');
             return;
         }
-        else if(!/[a-z]/.test(password)){
+        else if (!/[a-z]/.test(password)) {
             setError('Must have a LowerCase character');
             return;
         }
-      
+
 
         createUser(email, password)
             .then(result => {
@@ -54,16 +59,16 @@ const SignUp = () => {
                 toast.success('You are registered successfully')
                 setTimeout(() => {
                     navigate('/');
-                 }, 1000);
-                 setTimeout(() => {
+                }, 1000);
+                setTimeout(() => {
                     window.location.reload();
-                 }, 2000);
+                }, 2000);
             })
-            .catch(()=>{
+            .catch(() => {
                 toast.error('Email already in use');
             })
 
-            
+
     }
     return (
         <div>

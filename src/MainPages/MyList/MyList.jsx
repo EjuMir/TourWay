@@ -11,6 +11,18 @@ const MyList = () => {
 
     const list = myList.filter(data => data.userEmail == user.email);
 
+    const handleDelete = id =>{
+        fetch(`http://localhost:5000/allTouristSpot/${id}`, {
+            method:'DELETE'
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.deletedCount > 0){
+                alert('your data has been deleted')
+            }
+        })
+    }
+
     console.log(list);
 
     return (
@@ -38,7 +50,7 @@ const MyList = () => {
                                     <td>{data.travelTime}</td>
                                     <td>
                                         <button className='btn btn-primary mr-3'>Update</button>
-                                        <button className='btn btn-error text-white'>X</button>
+                                        <button onClick={()=>handleDelete(data._id)} className='btn btn-error text-white'>X</button>
                                     </td>
                                 </tr> )
                             }

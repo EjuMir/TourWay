@@ -10,12 +10,14 @@ import MyList from "../MainPages/MyList/MyList";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Home from "../MainPages/Home/Home";
 import ViewDetails from "../MainPages/ViewDetails/ViewDetails";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
   
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement:<ErrorPage></ErrorPage>,
       children: [
         {
            path:'/',

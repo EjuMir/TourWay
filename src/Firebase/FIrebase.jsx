@@ -15,10 +15,12 @@ const Firebase = ({children}) => {
     const githubProvider = new GithubAuthProvider();
 
     const githubUser = () =>{
+        setLoading(true);
         return signInWithPopup(auth, githubProvider);
     }
 
     const googleUser = () =>{
+        setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
 

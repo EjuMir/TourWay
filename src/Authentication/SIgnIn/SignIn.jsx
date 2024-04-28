@@ -13,6 +13,12 @@ const SignIn = () => {
     const { loginUser, googleUser, githubUser } = useContext(AuthFirebase);
     const navigate = useNavigate();
 
+    const { loading } = useContext(AuthFirebase)
+
+    if (loading) {
+        return <div className="mx-auto text-center mt-10"><p className="loading loading-bars loading-lg"></p></div>
+    }
+
 
     const handleLogin = e => {
         e.preventDefault();
@@ -22,14 +28,14 @@ const SignIn = () => {
         console.log(email, password);
 
         loginUser(email, password)
-            .then(() => {    
+            .then(() => {
                 toast.success('You are logged in successfully');
                 setTimeout(() => {
                     navigate('/')
-                 }, 1200);
-                 setTimeout(() => {
+                }, 1200);
+                setTimeout(() => {
                     window.location.reload();
-                 }, 2000);
+                }, 2000);
             })
             .catch(() => {
                 toast.error('Please Put Correct Email/Password')
@@ -42,10 +48,10 @@ const SignIn = () => {
                 toast.success('You are logged in successfully');
                 setTimeout(() => {
                     navigate('/')
-                 }, 1000);
+                }, 1000);
                 setTimeout(() => {
                     window.location.reload();
-                 }, 2000);
+                }, 2000);
             })
 
 
@@ -56,14 +62,14 @@ const SignIn = () => {
             .then(() => {
                 toast.success('You are logged in successfully');
                 setTimeout(() => {
-                   navigate('/')
+                    navigate('/')
                 }, 1000);
                 setTimeout(() => {
                     window.location.reload();
-                 }, 2000);
+                }, 2000);
             })
 
-       
+
     }
 
     return (
@@ -103,8 +109,8 @@ const SignIn = () => {
                             <input name="email" type="email" placeholder="Your Email" className="input input-bordered" required />
                         </div>
                         <div>
-                        <ToastContainer></ToastContainer>
-                        
+                            <ToastContainer></ToastContainer>
+
                         </div>
                         <div className="form-control relative">
                             <label className="label">
@@ -125,11 +131,11 @@ const SignIn = () => {
                         <div>
                             <h1>Dont have an account? <NavLink to='/signUp' className='underline text-blue-600'>Register here</NavLink></h1>
                         </div>
-                        
+
                     </form>
                 </div>
             </div>
-            
+
         </div>
     );
 };

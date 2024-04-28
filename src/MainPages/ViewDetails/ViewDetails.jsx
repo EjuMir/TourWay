@@ -1,10 +1,20 @@
 import { useLoaderData } from "react-router-dom";
+import { AuthFirebase } from "../../Firebase/FIrebase";
+import { useContext } from "react";
 
 const ViewDetails = () => {
+    
     const loadViewDetails = useLoaderData();
-    const {image, tourSpot, country, description, cost, seasonality, userName} = loadViewDetails
+    const {image, tourSpot, country, description, cost, seasonality, userName} = loadViewDetails;
+
+    const {loading} = useContext(AuthFirebase)
+
+    if(loading){
+        return <div className="mx-auto text-center mt-10"><p className="loading loading-bars loading-lg"></p></div>
+    }
+
     return (
-        <div>
+        <div className="my-14">
             <div className="hero min-h-screen" style={{ backgroundImage: `url(${image})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">

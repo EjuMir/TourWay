@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import 'react-tooltip/dist/react-tooltip.css'
@@ -8,6 +8,24 @@ import { AuthFirebase } from "../Firebase/FIrebase";
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthFirebase);
+    const [mode, setMode] = useState('light');
+
+    const handleChange = e => {
+        if(e.target.checked){
+           setMode('dark');
+        }
+        else{
+            setMode('light');
+        }
+    }
+    
+    useEffect(()=>{
+        localStorage.setItem('mode', mode);
+        const themeMode = localStorage.getItem('mode');
+        document.querySelector('html').setAttribute('data-theme', themeMode)
+    },[mode]);
+
+   
 
     const navLink = <>
         <NavLink to='/' className={({ isActive }) => isActive ? 'bg-orange-400 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Home</NavLink>
@@ -40,7 +58,11 @@ const Navbar = () => {
                     {navLink}
                 </ul>
             </div>
+            
             <div className="navbar-end gap-2">
+            <div>
+            <input onChange={handleChange} type="checkbox" className="toggle theme-controller bg-amber-300 border-sky-400 [--tglbg:theme(colors.sky.500)] checked:bg-blue-300 checked:border-blue-800 checked:[--tglbg:theme(colors.blue.900)] row-start-1 col-start-1 col-span-2"/>
+            </div>
                 <NavLink to='/signUp'><a className="btn bg-cyan-600 text-white font-bold">Sign Up</a></NavLink>
 
                 {
