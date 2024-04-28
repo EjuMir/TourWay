@@ -2,7 +2,7 @@
 import { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthFirebase } from '../../Firebase/FIrebase';
-import SingleCardList from './SingleCardList';
+
 
 const MyList = () => {
     const myList = useLoaderData();

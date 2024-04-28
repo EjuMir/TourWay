@@ -7,8 +7,19 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
+import { useLoaderData } from "react-router-dom";
+import HomeCard from "./HomeCard";
+import { useState } from "react";
 
 const Home = () => {
+   
+       const loadTourCard = useLoaderData();
+       const [show, setShow] = useState(true);
+
+       const handleShowMore = () =>{
+            setShow(!show);
+       }
+
     return (
         <div>
             {/* banner section */}
@@ -87,7 +98,20 @@ const Home = () => {
             {/* Tourist Spot Section */}
 
             <div className="my-10">
-                <h2 className="text-center text-5xl font-bold italic">TOURISTS <span className="text-orange-400">SPOT</span></h2>
+                <h2 className="text-center text-5xl font-bold italic mb-10">TOURISTS <span className="text-orange-400">SPOT</span></h2>
+                <div className="grid grid-cols-1 lg:grid-cols-3 place-items-center">
+                    {
+                       show ? loadTourCard.slice(0,2).map(card => <HomeCard key={card._id} card={card}></HomeCard>):
+                        loadTourCard.map(card => <HomeCard key={card._id} card={card}></HomeCard>)
+                    }
+                </div>
+                <div className="text-center my-10">
+                    <button onClick={handleShowMore} className="btn btn-secondary">
+                        {
+                           show ? 'Show More' : 'Show less'
+                        }
+                        </button>
+                </div>
             </div>
 
         </div>

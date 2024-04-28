@@ -1,17 +1,22 @@
 import { useLoaderData } from "react-router-dom";
 
-const ViewDetails = ({ id }) => {
+const ViewDetails = () => {
     const loadViewDetails = useLoaderData();
-
+    const {image, tourSpot, country, description, cost, seasonality, userName} = loadViewDetails
     return (
         <div>
-            <div className="hero min-h-screen" style={{ backgroundImage: `url(${loadViewDetails.image})` }}>
+            <div className="hero min-h-screen" style={{ backgroundImage: `url(${image})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                        <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button className="btn btn-primary">Get Started</button>
+                    <div className="max-w-md bg-gradient-to-t from-blue-400 to to-white opacity-50 text-cyan-900">
+                    <h1 className="mb-5 text-5xl font-bold">{tourSpot}, {country}</h1>
+                    </div>
+                    <hr className="border-2 border-orange-300 w-96 rotate-90 opacity-70" />
+                    <div className="max-w-md border bg-gradient-to-t from-blue-400 to to-white text-start text-black opacity-50">
+                        <p className="mb-5 text-2xl font-semibold">{description}</p>
+                        <p className="mb-5 text-xl font-semibold">Season : {seasonality}</p>
+                        <p className="mb-5 text-xl font-semibold">Cost : {cost}</p>
+                        <p className="mb-5 text-xl font-bold">By : {userName}</p>
                     </div>
                 </div>
             </div>

@@ -19,11 +19,13 @@ import ViewDetails from "../MainPages/ViewDetails/ViewDetails";
       children: [
         {
            path:'/',
-           element: <Home></Home>
+           element: <Home></Home>,
+           loader: ()=>fetch('http://localhost:5000/allTouristSpot')
         },
         {
             path:'/signIn',
-            element:<SignIn></SignIn>
+            element:<SignIn></SignIn>,
+
         },
         {
             path:'/signUp',
@@ -45,7 +47,7 @@ import ViewDetails from "../MainPages/ViewDetails/ViewDetails";
         },
         {
           path:'/viewDetails/:id',
-          element:<ViewDetails></ViewDetails>,
+          element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
           loader : ({params}) => fetch(`http://localhost:5000/viewDetails/${params.id}`)
         }
         
