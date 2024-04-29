@@ -12,7 +12,7 @@ const MyList = () => {
     const list = myList.filter(data => data.userEmail == user.email);
 
     const handleDelete = id =>{
-        fetch(`http://localhost:5000/allTouristSpot/${id}`, {
+        fetch(`https://tour-5a80b4v3k-ejumirs-projects.vercel.app/allTouristSpot/${id}`, {
             method:'DELETE'
         })
         .then(res=>res.json())

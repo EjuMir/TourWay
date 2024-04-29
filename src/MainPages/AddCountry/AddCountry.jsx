@@ -13,7 +13,7 @@ const AddCountry = () => {
          const countryDesc = form.countryDes.value;
          const countryCard = {countryImage, countryDesc, countryName};
 
-         fetch('http://localhost:5000/country', {
+         fetch('https://tour-5a80b4v3k-ejumirs-projects.vercel.app/country', {
             method : 'POST',
             headers : {'content-type':'application/json'},
             body : JSON.stringify(countryCard)

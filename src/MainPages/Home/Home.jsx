@@ -22,7 +22,7 @@ const Home = () => {
     const [add, setAdd] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/country')
+        fetch('https://tour-5a80b4v3k-ejumirs-projects.vercel.app/country')
         .then(res=>res.json())
         .then(data => setAdd(data))
     },[])
