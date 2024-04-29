@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthFirebase } from "../../Firebase/FIrebase";
@@ -11,7 +11,6 @@ const SignIn = () => {
 
     const [password, showPassword] = useState(false);
     const { loginUser, googleUser, githubUser } = useContext(AuthFirebase);
-    const navigate = useNavigate();
 
     const { loading } = useContext(AuthFirebase)
 
@@ -29,13 +28,13 @@ const SignIn = () => {
 
         loginUser(email, password)
             .then(() => {
-                toast.success('You are logged in successfully');
                 setTimeout(() => {
-                    navigate('/')
+                    toast.success('You are logged in successfully');
+                
                 }, 1200);
                 setTimeout(() => {
                     window.location.reload();
-                }, 2000);
+                }, 1500);
             })
             .catch(() => {
                 toast.error('Please Put Correct Email/Password')
@@ -45,9 +44,9 @@ const SignIn = () => {
     const handleGoogleLogin = () => {
         googleUser()
             .then(() => {
-                toast.success('You are logged in successfully');
                 setTimeout(() => {
-                    navigate('/')
+                    toast.success('You are logged in successfully');
+                   
                 }, 1000);
                 setTimeout(() => {
                     window.location.reload();
@@ -60,9 +59,8 @@ const SignIn = () => {
     const handleGithubLogin = () => {
         githubUser()
             .then(() => {
-                toast.success('You are logged in successfully');
                 setTimeout(() => {
-                    navigate('/')
+                    toast.success('You are logged in successfully');
                 }, 1000);
                 setTimeout(() => {
                     window.location.reload();

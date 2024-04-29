@@ -63,10 +63,10 @@ const Navbar = () => {
             <div>
             <input onChange={handleChange} type="checkbox" className="toggle theme-controller bg-amber-300 border-sky-400 [--tglbg:theme(colors.sky.500)] checked:bg-blue-300 checked:border-blue-800 checked:[--tglbg:theme(colors.blue.900)] row-start-1 col-start-1 col-span-2"/>
             </div>
-                <NavLink to='/signUp'><a className="btn bg-cyan-600 text-white font-bold">Sign Up</a></NavLink>
+                <NavLink to='/signUp'><a className="btn bg-orange-600 text-white font-bold">Sign Up</a></NavLink>
 
                 {
-                    user ? <a onClick={() => logOut()} className="btn bg-red-500 text-white font-bold">Sign Out</a> : <NavLink to='/signIn'><a className="btn bg-green-500 text-white font-bold">Sign In</a></NavLink>
+                    user ? <a onClick={() => logOut()} className="btn bg-red-500 text-white font-bold">Sign Out</a> : <NavLink to='/signIn'><a className="btn bg-orange-900 text-white font-bold">Sign In</a></NavLink>
 
                 }
 

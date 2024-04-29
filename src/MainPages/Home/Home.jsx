@@ -114,7 +114,7 @@ const Home = () => {
 
             <div className="my-10">
                 <h2 className="text-center text-5xl font-bold italic mb-10">TOURISTS <span className="text-orange-400">SPOT</span></h2>
-                <div className="grid grid-cols-1 lg:grid-cols-3 place-items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 place-items-center">
                     {
                         show ? loadTourCard.slice(0, 3).map(card => <HomeCard key={card._id} card={card}></HomeCard>) :
                             loadTourCard.map(card => <HomeCard key={card._id} card={card}></HomeCard>)
@@ -130,9 +130,9 @@ const Home = () => {
             </div>
 
             {/* Country section */}
-              <div className="my-10">
-              <h2 className="text-center text-5xl font-bold italic mb-10"> CHOOSE YOUR <span className="text-orange-400">COUNTRY</span></h2>
-              <div className="grid grid-cols-3 place-items-center">
+              <div className="my-14">
+              <h2 className="text-center text-5xl font-bold italic mb-10"> CHOOSE YOUR <span className="text-orange-400">DESTINATION</span></h2>
+              <div className="grid grid-cols-4 place-items-center">
                 {
                     add.map(data=> <SingleCountryCard key={data._id} data={data}></SingleCountryCard>)
                 }
@@ -140,7 +140,7 @@ const Home = () => {
               </div>
             {/* Accordion section (Extra) */}
 
-            <div className="w-3/4 mx-auto my-10">
+            <div className="w-3/4 mx-auto my-16">
                 <h2 className="text-center text-5xl font-bold italic mb-10"> WE BRING <span className="text-orange-400">YOU</span></h2>
                <div className="border-2 rounded-md p-4">
                <div className="collapse collapse-arrow bg-orange-100">
@@ -175,7 +175,7 @@ const Home = () => {
             </div>
 
             {/* extra section 2 */}
-            <div className="mx-auto text-center my-10">
+            <div className="mx-auto text-center my-16">
                 <h2 className="text-center text-5xl font-bold italic mb-10"> OUR <span className="text-orange-400">ACHIEVEMENT</span></h2>
                 <div className="stats shadow border-2">
 

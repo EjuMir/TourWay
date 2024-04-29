@@ -9,11 +9,11 @@ const SingleCountryCard = ({ data }) => {
 
     return (
         <Link to={`/allTouristSpot/${countryName}`}>
-        <div className="card w-96 h-60 bg-base-100 shadow-xl image-full">
-            <figure><img src={countryImage} alt="Shoes" /></figure>
-            <div className="card-body my-auto">
-                <h2 className="card-title text-4xl font-bold mx-auto my-auto">{countryName}</h2>
-                <p className="mx-auto">{countryDesc}</p>
+        <div className="card w-60 h-28 bg-base-100 shadow-xl image-full">
+            <figure><img src={countryImage} alt="Country Flag" /></figure>
+            <div className="card-body my-auto hover:text-orange-400">
+                <h2 className="card-title text-4xl hover:text-orange-400 font-bold mx-auto my-auto">{countryName}</h2>
+                <p className="mx-auto hover:text-orange-400">{countryDesc}</p>
             </div>
         </div>
         </Link>

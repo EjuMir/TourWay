@@ -13,7 +13,6 @@ import ViewDetails from "../MainPages/ViewDetails/ViewDetails";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import UpdatePage from "../MainPages/UpdatePage/UpdatePage";
 import AddCountry from "../MainPages/AddCountry/AddCountry";
-import SingleCountryCard from "../MainPages/AddCountry/SingleCountryCard";
 
 
 const router = createBrowserRouter([
