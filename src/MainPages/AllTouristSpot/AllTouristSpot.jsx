@@ -13,7 +13,7 @@ const AllTouristSpot = () => {
     }
 
     return (
-        <div className="grid grid-cols-3 place-items-center">
+        <div className="grid grid-cols-3 place-items-center my-10 gap-5">
             {
                 loadData.map(data => <SingleTourSpot key={data._id} data={data}></SingleTourSpot>)
             }

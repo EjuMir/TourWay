@@ -8,7 +8,7 @@ const SingleTourSpot = ({data}) => {
 
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-xl border-2">
                 <figure><img src={image} className="w-full h-72" alt="Tour Picture" /></figure>
                 <div className="card-body">
                     <h2 className="card-title"><span className="text-orange-400 text-xl font-bold">Place : </span>{tourSpot}</h2>

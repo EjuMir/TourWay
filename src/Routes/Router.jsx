@@ -1,6 +1,6 @@
 import {
-    createBrowserRouter,
-  } from "react-router-dom";
+  createBrowserRouter,
+} from "react-router-dom";
 import SignIn from "../Authentication/SIgnIn/SignIn";
 import Root from "../Root/Root";
 import SignUp from "../Authentication/SignUp/SignUp";
@@ -11,51 +11,68 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Home from "../MainPages/Home/Home";
 import ViewDetails from "../MainPages/ViewDetails/ViewDetails";
 import ErrorPage from "../ErrorPage/ErrorPage";
-
-  
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Root></Root>,
-      errorElement:<ErrorPage></ErrorPage>,
-      children: [
-        {
-           path:'/',
-           element: <Home></Home>,
-           loader: ()=>fetch('http://localhost:5000/allTouristSpot')
-        },
-        {
-            path:'/signIn',
-            element:<SignIn></SignIn>,
-
-        },
-        {
-            path:'/signUp',
-            element:<SignUp></SignUp>
-        },
-        {
-            path:'/allTouristSpot',
-            element:<AllTouristSpot></AllTouristSpot>,
-            loader : () => fetch('http://localhost:5000/allTouristSpot')
-        },
-        {
-            path:'/addTouristSpot',
-            element:<PrivateRoute><AddTouristSpot></AddTouristSpot></PrivateRoute>
-        },
-        {
-            path:'/MyList',
-            element:<PrivateRoute><MyList></MyList></PrivateRoute>,
-            loader : () => fetch('http://localhost:5000/allTouristSpot')
-        },
-        {
-          path:'/viewDetails/:id',
-          element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-          loader : ({params}) => fetch(`http://localhost:5000/viewDetails/${params.id}`)
-        }
-        
-      ]
-    },
-  ]);
+import UpdatePage from "../MainPages/UpdatePage/UpdatePage";
+import AddCountry from "../MainPages/AddCountry/AddCountry";
+import SingleCountryCard from "../MainPages/AddCountry/SingleCountryCard";
 
 
-  export default router
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/allTouristSpot')
+      },
+      {
+        path: '/signIn',
+        element: <SignIn></SignIn>,
+
+      },
+      {
+        path: '/signUp',
+        element: <SignUp></SignUp>
+      },
+      {
+        path: '/allTouristSpot',
+        element: <AllTouristSpot></AllTouristSpot>,
+        loader: () => fetch('http://localhost:5000/allTouristSpot')
+      },
+      {
+        path: '/addTouristSpot',
+        element: <PrivateRoute><AddTouristSpot></AddTouristSpot></PrivateRoute>
+      },
+      {
+        path: '/MyList',
+        element: <PrivateRoute><MyList></MyList></PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/allTouristSpot')
+      },
+      {
+        path: '/viewDetails/:id',
+        element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/viewDetails/${params.id}`)
+      },
+      {
+        path: '/updateCard/:id',
+        element: <PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/updateCard/${params.id}`)
+      },
+      {
+        path: '/addCountry',
+        element: <PrivateRoute><AddCountry></AddCountry></PrivateRoute>
+      },
+      {
+        path: '/allTouristSpot/:id',
+        element: <AllTouristSpot></AllTouristSpot>,
+        loader: ({params}) => fetch(`http://localhost:5000/allTouristSpot/${params.id}`)
+      },
+
+    ]
+  },
+]);
+
+
+export default router

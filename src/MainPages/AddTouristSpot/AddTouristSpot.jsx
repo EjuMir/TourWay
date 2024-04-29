@@ -1,7 +1,12 @@
+import { useContext } from 'react';
 import Swal from 'sweetalert2'
+import { AuthFirebase } from '../../Firebase/FIrebase';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddTouristSpot = () => {
 
+    const {user} = useContext(AuthFirebase)
+    
     const handleSubmit = e =>{
          e.preventDefault();
          const form = e.target;
@@ -19,6 +24,10 @@ const AddTouristSpot = () => {
 
          const tourCard = {image, tourSpot, country, location, description, cost, seasonality, travelTime, visitor, userName, userEmail};
          
+         if(user.email != userEmail){
+            return toast.error('Please Put Correct Email Which You Are Logged In')
+         }
+
          fetch('http://localhost:5000/allTouristSpot', {
             method : 'POST',
             headers : {'content-type':'application/json'},
@@ -33,21 +42,23 @@ const AddTouristSpot = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                   })
+                  form.reset();
             }
          })
     }
 
     return (
-        <div>
+        <div className='mx-auto w-3/4 border-2 p-3 shadow-md my-10'>
+           <ToastContainer></ToastContainer>
             <h1 className='my-10 text-center text-2xl font-bold'>ADD TOURIST SPOT</h1>
             <div className="mb-10">
                 <form onSubmit={handleSubmit}>
                     <div className="grid grid-cols-2 gap-5 justify-center">
                         <div className="flex flex-col gap-2">
                             <h4>Tourist Spot Name :</h4>
-                            <input type="text" name="spotName" placeholder="Type here" className="input input-bordered input-primary w-full" />
+                            <input type="text" name="spotName" placeholder="Type here" className="input input-bordered input-primary w-full"/>
                             <h4>Tourist Spot Image :</h4>
-                            <input type="text" name="image" placeholder="Type here" className="input input-bordered input-primary w-full" />
+                            <input type="url" name="image" placeholder="Type here" className="input input-bordered input-primary w-full" />
                             <h4>Country Name :</h4>
                             <input type="text" name="countryName" placeholder="Type here" className="input input-bordered input-primary w-full" />
                             <h4>Location :</h4>
@@ -65,7 +76,7 @@ const AddTouristSpot = () => {
                             <h4>Total Visitor Per Year :</h4>
                             <input type="text" name="visitor" placeholder="Type here" className="input input-bordered input-primary w-full" />
                             <h4>User Email :</h4>
-                            <input type="email" name="email" placeholder="Type here" className="input input-bordered input-primary w-full" />
+                            <input type="email" name="email" placeholder="Type here" className="input input-bordered input-primary w-full" required/>
                             <h4>User Name :</h4>
                             <input type="text" name="userName" placeholder="Type here" className="input input-bordered input-primary w-full" />           
                         </div>

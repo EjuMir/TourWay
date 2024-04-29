@@ -9,15 +9,23 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
 import { useLoaderData } from "react-router-dom";
 import HomeCard from "./HomeCard";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthFirebase } from "../../Firebase/FIrebase";
 import { CgProfile } from "react-icons/cg";
+import SingleCountryCard from "../AddCountry/SingleCountryCard";
 
 const Home = () => {
 
     const loadTourCard = useLoaderData();
     const {user, loading} = useContext(AuthFirebase);
     const [show, setShow] = useState(true);
+    const [add, setAdd] = useState([]);
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/country')
+        .then(res=>res.json())
+        .then(data => setAdd(data))
+    },[])
  
     if(loading){
        return <div className="mx-auto text-center mt-10"><p className="loading loading-bars loading-lg"></p></div>
@@ -108,7 +116,7 @@ const Home = () => {
                 <h2 className="text-center text-5xl font-bold italic mb-10">TOURISTS <span className="text-orange-400">SPOT</span></h2>
                 <div className="grid grid-cols-1 lg:grid-cols-3 place-items-center">
                     {
-                        show ? loadTourCard.slice(0, 2).map(card => <HomeCard key={card._id} card={card}></HomeCard>) :
+                        show ? loadTourCard.slice(0, 3).map(card => <HomeCard key={card._id} card={card}></HomeCard>) :
                             loadTourCard.map(card => <HomeCard key={card._id} card={card}></HomeCard>)
                     }
                 </div>
@@ -121,11 +129,21 @@ const Home = () => {
                 </div>
             </div>
 
+            {/* Country section */}
+              <div className="my-10">
+              <h2 className="text-center text-5xl font-bold italic mb-10"> CHOOSE YOUR <span className="text-orange-400">COUNTRY</span></h2>
+              <div className="grid grid-cols-3 place-items-center">
+                {
+                    add.map(data=> <SingleCountryCard key={data._id} data={data}></SingleCountryCard>)
+                }
+              </div>
+              </div>
             {/* Accordion section (Extra) */}
 
             <div className="w-3/4 mx-auto my-10">
                 <h2 className="text-center text-5xl font-bold italic mb-10"> WE BRING <span className="text-orange-400">YOU</span></h2>
-                <div className="collapse collapse-arrow bg-orange-100">
+               <div className="border-2 rounded-md p-4">
+               <div className="collapse collapse-arrow bg-orange-100">
                     <input type="radio" name="my-accordion-2" />
                     <div className="collapse-title text-xl font-medium">
                         What is this website about?
@@ -152,6 +170,8 @@ const Home = () => {
                         <p>We bring you various offers and extraordinary destinations, so that people from every walk of life can enjoy their vacation</p>
                     </div>
                 </div>
+               </div>
+               
             </div>
 
             {/* extra section 2 */}

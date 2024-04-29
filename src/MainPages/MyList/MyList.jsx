@@ -1,6 +1,6 @@
 
 import { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthFirebase } from '../../Firebase/FIrebase';
 
 
@@ -26,7 +26,7 @@ const MyList = () => {
     console.log(list);
 
     return (
-        <div>
+        <div className='my-14'>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table">
@@ -49,7 +49,7 @@ const MyList = () => {
                                     <td>{data.cost}</td>
                                     <td>{data.travelTime}</td>
                                     <td>
-                                        <button className='btn btn-primary mr-3'>Update</button>
+                                        <Link to={`/updateCard/${data._id}`}><button className='btn btn-primary mr-3'>Update</button></Link>
                                         <button onClick={()=>handleDelete(data._id)} className='btn btn-error text-white'>X</button>
                                     </td>
                                 </tr> )
