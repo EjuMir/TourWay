@@ -53,14 +53,15 @@ const AddTouristSpot = () => {
             <h1 className='my-10 text-center text-2xl font-bold'>ADD TOURIST SPOT</h1>
             <div className="mb-10">
                 <form onSubmit={handleSubmit}>
-                    <div className="grid grid-cols-2 gap-5 justify-center">
+                    <div>
+                        <div className="grid lg:grid-cols-2 gap-5 mb-5">
                         <div className="flex flex-col gap-2">
                             <h4>Tourist Spot Name :</h4>
                             <input type="text" name="spotName" placeholder="Type here" className="input input-bordered input-primary w-full"/>
                             <h4>Tourist Spot Image :</h4>
                             <input type="url" name="image" placeholder="Type here" className="input input-bordered input-primary w-full" />
                             <h4>Country Name :</h4>
-                            <input type="text" name="countryName" placeholder="Type here" className="input input-bordered input-primary w-full" />
+                            <input type="text" name="countryName" placeholder="Type here" className="input input-bordered input-primary w-full" required/>
                             <h4>Location :</h4>
                             <input type="text" name="location" placeholder="Type here" className="input input-bordered input-primary w-full" />
                             <h4>Short Description :</h4>
@@ -79,6 +80,7 @@ const AddTouristSpot = () => {
                             <input type="email" name="email" placeholder="Type here" className="input input-bordered input-primary w-full" required/>
                             <h4>User Name :</h4>
                             <input type="text" name="userName" placeholder="Type here" className="input input-bordered input-primary w-full" />           
+                        </div>
                         </div>
                         
                         <div className=" grid col-span-2">

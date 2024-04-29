@@ -30,11 +30,8 @@ const SignIn = () => {
             .then(() => {
                 setTimeout(() => {
                     toast.success('You are logged in successfully');
-                
                 }, 1200);
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1500);
+                
             })
             .catch(() => {
                 toast.error('Please Put Correct Email/Password')
@@ -48,9 +45,6 @@ const SignIn = () => {
                     toast.success('You are logged in successfully');
                    
                 }, 1000);
-                setTimeout(() => {
-                    window.location.reload();
-                }, 2000);
             })
 
 

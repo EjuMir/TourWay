@@ -132,7 +132,7 @@ const Home = () => {
             {/* Country section */}
               <div className="my-14">
               <h2 className="text-center text-5xl font-bold italic mb-10"> CHOOSE YOUR <span className="text-orange-400">DESTINATION</span></h2>
-              <div className="grid grid-cols-4 place-items-center">
+              <div className="grid lg:grid-cols-4 gap-10 place-items-center">
                 {
                     add.map(data=> <SingleCountryCard key={data._id} data={data}></SingleCountryCard>)
                 }
@@ -177,7 +177,7 @@ const Home = () => {
             {/* extra section 2 */}
             <div className="mx-auto text-center my-16">
                 <h2 className="text-center text-5xl font-bold italic mb-10"> OUR <span className="text-orange-400">ACHIEVEMENT</span></h2>
-                <div className="stats shadow border-2">
+                <div className="stats shadow border-2 flex flex-col lg:flex-row">
 
                     <div className="stat">
                         <div className="stat-figure text-primary">

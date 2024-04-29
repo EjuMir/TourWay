@@ -60,7 +60,7 @@ const SignUp = () => {
                 }, 1000);
                 setTimeout(() => {
                     window.location.reload();
-                }, 2000);
+                }, 1600);
             })
             .catch(() => {
                 toast.error('Email already in use');

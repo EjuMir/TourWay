@@ -47,7 +47,8 @@ const UpdatePage = () => {
             <h1 className='my-10 text-center text-2xl font-bold'>UPDATE YOUR TOURIST SPOT</h1>
             <div className="mb-10">
                 <form onSubmit={handleSubmit}>
-                    <div className="grid grid-cols-2 gap-5 justify-center">
+                    <div>
+                        <div className="grid lg:grid-cols-2 gap-5 justify-center">
                         <div className="flex flex-col gap-2">
                             <h4>Tourist Spot Name :</h4>
                             <input type="text" name="spotName" placeholder="Type here" className="input input-bordered input-primary w-full" defaultValue={tourSpot} />
@@ -68,9 +69,10 @@ const UpdatePage = () => {
                             <h4>Average Cost :</h4>
                             <input type="number" name="avgCost" placeholder="Type here" className="input input-bordered input-primary w-full" defaultValue={cost}/>
                         </div>
+                        </div>
 
                         <div className=" grid col-span-2">
-                        <h4 className='text-center'>Short Description :</h4>
+                        <h4 className='text-center mt-3'>Short Description :</h4>
                             <input type="text" name="shortDes" placeholder="Type here" className="input input-bordered input-primary w-full mb-5" defaultValue={description}/>
                             <input type="submit" value="Update" className="btn btn-accent text-white font-bold" />
                         </div>
