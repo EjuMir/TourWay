@@ -22,7 +22,7 @@ const Home = () => {
     const [add, setAdd] = useState([]);
 
     useEffect(()=>{
-        fetch('https://tour-5a80b4v3k-ejumirs-projects.vercel.app/country')
+        fetch('https://tourway-ph-10.vercel.app/country')
         .then(res=>res.json())
         .then(data => setAdd(data))
     },[])
@@ -39,7 +39,7 @@ const Home = () => {
         <div>
             {/* banner section */}
             <div className="mt-20 bg-gradient-to-tl from-black to-orange-300 h-96 w-full relative">
-                <img src="/public/banner-tourist-spot.jpg" alt="" className="w-full h-full object-cover absolute mix-blend-overlay" />
+                <img src="banner-tourist-spot.jpg" alt="" className="w-full h-full object-cover absolute mix-blend-overlay" />
                 <h1 style={{ paddingTop: '5rem', margin: 'auto', fontStyle: "italic", fontWeight: 'bold', fontSize: '70px', color: 'black', textAlign: 'center' }}>
                     LIFE IS ABOUT <br />{' '}
                     <span style={{ color: 'white', fontWeight: 'bold' }}>
@@ -92,17 +92,17 @@ const Home = () => {
                         <SwiperSlide className="mx-auto">
                             <div className="bg-gradient-to-tl from-cyan-200 to-black h-96 w-full relative">
                                 <h2 className="absolute text-6xl text-white mx-auto font-bold">CHOOSE</h2>
-                                <img src="/public/Malaysia-Sets-Out-Tourism-Recovery-Plan-2-1024x668.jpg" className="w-full h-96 object-cover absolute mix-blend-overlay" alt="" />
+                                <img src="Malaysia-Sets-Out-Tourism-Recovery-Plan-2-1024x668.jpg" className="w-full h-96 object-cover absolute mix-blend-overlay" alt="" />
                             </div>
                         </SwiperSlide>
                         <SwiperSlide><div className="bg-gradient-to-tl from-black to-cyan-200 h-96 w-full relative">
                             <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl text-white mx-auto font-bold">YOUR</h2>
-                            <img src="/public/thailand-home.webp" className="w-full h-96 object-cover absolute mix-blend-overlay" alt="" />
+                            <img src="thailand-home.webp" className="w-full h-96 object-cover absolute mix-blend-overlay" alt="" />
                         </div></SwiperSlide>
                         <SwiperSlide>
                             <div className="bg-gradient-to-tl from-black to-orange-300 h-96 w-full relative">
                                 <h2 className="absolute top-2/3 left-2/3 text-6xl text-white mx-auto font-bold">DESTINATION</h2>
-                                <img src="/public/1 JD7lUyrUdRGhjppG7j0dcQ.jpg" className="w-full h-96 object-cover absolute mix-blend-overlay" alt="" />
+                                <img src="1 JD7lUyrUdRGhjppG7j0dcQ.jpg" className="w-full h-96 object-cover absolute mix-blend-overlay" alt="" />
                             </div>
                         </SwiperSlide>
                         ...

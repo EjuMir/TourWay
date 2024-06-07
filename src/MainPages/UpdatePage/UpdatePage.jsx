@@ -23,7 +23,7 @@ const UpdatePage = () => {
 
         const tourCard = { image, tourSpot, country, location, description, cost, seasonality, travelTime, visitor};
 
-        fetch(`https://tour-5a80b4v3k-ejumirs-projects.vercel.app/allTouristSpot/${_id}`, {
+        fetch(`https://tourway-ph-10.vercel.app/allTouristSpot/${_id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(tourCard)

@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('https://tour-5a80b4v3k-ejumirs-projects.vercel.app/allTouristSpot')
+        loader: () => fetch('https://tourway-ph-10.vercel.app/allTouristSpot')
       },
       {
         path: '/signIn',
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: '/allTouristSpot',
         element: <AllTouristSpot></AllTouristSpot>,
-        loader: () => fetch('https://tour-5a80b4v3k-ejumirs-projects.vercel.app/allTouristSpot')
+        loader: () => fetch('https://tourway-ph-10.vercel.app/allTouristSpot')
       },
       {
         path: '/addTouristSpot',
@@ -47,17 +47,17 @@ const router = createBrowserRouter([
       {
         path: '/MyList',
         element: <PrivateRoute><MyList></MyList></PrivateRoute>,
-        loader: () => fetch('https://tour-5a80b4v3k-ejumirs-projects.vercel.app/allTouristSpot')
+        loader: () => fetch('https://tourway-ph-10.vercel.app/allTouristSpot')
       },
       {
         path: '/viewDetails/:id',
         element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://tour-5a80b4v3k-ejumirs-projects.vercel.app/viewDetails/${params.id}`)
+        loader: ({ params }) => fetch(`https://tourway-ph-10.vercel.app/viewDetails/${params.id}`)
       },
       {
         path: '/updateCard/:id',
         element: <PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://tour-5a80b4v3k-ejumirs-projects.vercel.app/updateCard/${params.id}`)
+        loader: ({ params }) => fetch(`https://tourway-ph-10.vercel.app/updateCard/${params.id}`)
       },
       {
         path: '/addCountry',
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
       {
         path: '/allTouristSpot/:id',
         element: <AllTouristSpot></AllTouristSpot>,
-        loader: ({params}) => fetch(`https://tour-5a80b4v3k-ejumirs-projects.vercel.app/allTouristSpot/${params.id}`)
+        loader: ({params}) => fetch(`https://tourway-ph-10.vercel.app/allTouristSpot/${params.id}`)
       },
 
     ]

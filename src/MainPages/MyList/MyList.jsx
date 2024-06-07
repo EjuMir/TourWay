@@ -1,29 +1,50 @@
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthFirebase } from '../../Firebase/FIrebase';
+import Swal from 'sweetalert2';
 
 
 const MyList = () => {
     const myList = useLoaderData();
     const firebase = useContext(AuthFirebase);
     const { user } = firebase;
+    
 
     const list = myList.filter(data => data.userEmail == user.email);
+    const [card, setCard] = useState(list);
 
     const handleDelete = id =>{
-        fetch(`https://tour-5a80b4v3k-ejumirs-projects.vercel.app/allTouristSpot/${id}`, {
-            method:'DELETE'
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.deletedCount > 0){
-                alert('your data has been deleted')
-            }
-        })
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: true
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+                fetch(`https://tourway-ph-10.vercel.app/allTouristSpot/${id}`, {
+                    method:'DELETE'
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    console.log(data);
+                    if(data.deletedCount > 0){
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                          });
+                        const remaining = card.filter(element => element._id != id);
+                        setCard(remaining);
+                    }
+                })
+            } 
+          });
     }
-
-    console.log(list);
 
     return (
         <div className='my-14'>
@@ -43,7 +64,7 @@ const MyList = () => {
                         <tbody>
                             {/* row 1 */}
                             {
-                                list.map(data =><tr key={data._id}>
+                                card.map(data =><tr key={data._id}>
                                     <th>{data.tourSpot}</th>
                                     <td>{data.country}</td>
                                     <td>{data.cost}</td>

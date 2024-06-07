@@ -28,7 +28,7 @@ const AddTouristSpot = () => {
             return toast.error('Please Put Correct Email Which You Are Logged In')
          }
 
-         fetch('https://tour-5a80b4v3k-ejumirs-projects.vercel.app/allTouristSpot', {
+         fetch('https://tourway-ph-10.vercel.app/allTouristSpot', {
             method : 'POST',
             headers : {'content-type':'application/json'},
             body : JSON.stringify(tourCard)
